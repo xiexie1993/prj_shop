@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>租赁方案列表</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+<link href="css/public.css" rel="stylesheet">
+
+</head>
+
+<body class="page-body big-width">
+    <h5 class="position-title">当前位置：方案管理 <span>/</span>类别管理</h5>
+    
+    <div class="row" style="">
+    	<button type="button" class="btn btn-success" data-toggle="modal" data-target="" onclick=operate('new',this)>发布租赁方案</button>
+ 
+            <div class="row" style="margin-top: 20px;">
+          
+            	<nav class="navbar navbar-default" role="navigation">
+				  <div class="navbar-header"> 
+                    <a class="navbar-brand" href="#">类别</a> 
+                    </div> 
+				        <ul class="nav navbar-nav">
+				        	  <li class="active"><a href="#">全部</a></li>
+				            <li><a href="#">手机</a></li>
+				            <li><a href="#">游戏装备</a></li>
+				             <li><a href="#">电脑</a></li>
+				              <li><a href="#">其他</a></li>
+				        </ul>
+				    </div>
+				    </div>
+                  </nav>
+                 
+            </div>
+    	
+    </div>
+    
+    <div class="search-box">
+        <form id="searchForm">
+            <div><span>商品标题：</span><input type="text" class="form-control" placeholder="商品名称" name="userName"></div>
+            <div>
+                <span>套餐名称：</span>
+                <select class="form-control" id="searchPropType" name="propType">
+                </select>
+            </div>
+            <div>
+                <span>审核状态：</span>
+                <select class="form-control" id="searchAuditiStatus" name="auditiStatus">
+                </select>
+            </div>
+            <div><span>兑换时间：</span><input type="date" class="form-control" name="createTime"></div>
+            <input id="search" type="button" class="btn btn-info" value="查询" onclick="operate('search',this)">
+        </form>
+        <div>
+            <input id="new" type="button" class="btn btn-info" value="新增" onclick="operate('new',this)">
+        </div>
+    </div>
+    <div class="ibox-content">
+        <table class="table table-striped table-bordered table-hover"></table>
+    </div>
+
+                   <!-- Modal 新增、编辑 -->
+<div class="modal fade" id="roleMes" tabindex="-1" role="dialog" aria-labelledby="roleMesLabel" data-id="">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="roleMesLabel">租赁分类编辑</h4>
+      </div>
+      <div class="modal-body row">
+        <div class="col-xs-12">
+          <form class="form-horizontal" role="form">
+            <div class="form-group" id="modalName">
+              <label class="col-sm-3 control-label">名称：</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lName" name="title" placeholder="">
+              </div>
+            </div>
+            <div class="form-group" id="modalName">
+              <label class="col-sm-3 control-label">排序：</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control"  id="lSore" name=" sort" placeholder="">
+              </div>
+            </div>
+            <div class="form-group" id="modalStatus">
+              <label class="col-sm-3 control-label">状态：</label>
+              <div class="col-sm-9">
+                <div class="radio">
+                  <label class="radio-left">
+                    <input type="radio" name="enable" value="1"> 启用
+                  </label>
+                  <label>
+                    <input type="radio" name="enable" value="0"> 禁用
+                  </label>
+                </div>
+              </div>
+            </div>
+             <div class="form-group" id="modalName">
+              <label class="col-sm-3 control-label">备注：</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control"  id="lRem" name="remark" placeholder="">
+              </div>
+            </div>
+            <div class="form-group button">
+              <input type="button" class="btn btn-primary" onclick=sure() value="保存">
+              <input type="button" class="btn" data-dismiss="modal" value="取消">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                    
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="roleMesLabel" data-id="">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="roleMesLabel">添加分类</h4>
+      </div>
+      <div class="modal-body row">
+			        
+			<form role="form">
+			 <div class="form-group">
+			    <label for="firstname" class="col-sm-2 control-label">类别名称</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="title" placeholder="请输入类别名称">
+			    </div>
+			  </div>
+		   <div class="form-group">
+			    <label for="firstname" class="col-sm-2 control-label">名称</label>
+			    <div class="col-sm-10">
+			    <div class="radio">
+                  <label class="radio-left">
+                    <input type="radio" name="enable" value="1" checked="checked"> 启用
+                  </label>
+                  <label>
+                    <input type="radio" name="enable" value="0"> 禁用
+                  </label>
+                </div>
+			      
+			    </div>
+			  </div>
+			   <div class="form-group">
+			    <label for="firstname" class="col-sm-2 control-label">排序</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="sort" placeholder="0">
+			    </div>
+			  </div>
+			</form>
+
+      </div>
+       <div class="modal-footer">
+       	   <button type="button" class="btn btn-primary" onclick=sure()>确定</button>
+   	          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		    
+                
+            </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="typeDel" tabindex="-1" role="dialog" aria-labelledby="roleMesLabel" data-id="">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="roleMesLabel">删除分类</h4>
+      </div>
+      <div class="modal-body row">
+        <div class="col-xs-12">
+          <form class="form-horizontal" role="form">
+            <div class="form-group" id="modalName">
+                                                       你确定删除这个分类！
+            </div>
+           
+            <div class="form-group button">
+              <input type="button" class="btn btn-primary" onclick="sure()" value="确定">
+              <input type="button" class="btn" data-dismiss="modal" value="取消">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="vendor/jquery-3.1.1.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap/bootstrap-table.min.js"></script>
+<script src="vendor/bootstrap/bootstrap-table-locale-all.min.js"></script>
+<script src="vendor/layer/layer.min.js" ></script>
+<script src="js/ajax.js"></script>
+<script src="js/public.js"></script>
+<script src="js/zl_shop.js"></script>
+
+</body>
+
+</html>

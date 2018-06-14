@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> 虚拟物品兑换记录</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+<link href="css/public.css" rel="stylesheet">
+
+</head>
+
+<body class="page-body">
+    <h5 class="position-title">当前位置：数据统计&gt;虚拟物品兑换记录</h5>
+
+    <div class="search-box">
+        <form id="searchForm">
+            <div><span>用户名称：</span><input type="text" class="form-control" placeholder="用户名称" name="userName"></div>
+            <div>
+                <span>消耗类型：</span>
+                <select class="form-control" id="searchPropType" name="propType">
+                </select>
+            </div>
+            <div>
+                <span>审核状态：</span>
+                <select class="form-control" id="searchAuditiStatus" name="auditiStatus">
+                </select>
+            </div>
+            <div><span>兑换时间：</span><input type="date" class="form-control" name="createTime"></div>
+            <input id="search" type="button" class="btn btn-info" value="查询" onclick="operate('search',this)">
+        </form>
+        <!-- <div>
+            <input id="new" type="button" class="btn btn-info" value="新增" onclick="operate('new',this)">
+        </div> -->
+    </div>
+
+    <div class="ibox-content">
+        <table class="table table-striped table-bordered table-hover"></table>
+    </div>
+
+
+    <!--兑换-->
+<div class="modal fade bs-example-modal-sm" id="duihuan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-id="">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">信息</h4>
+      </div>
+      <div class="modal-body row">
+        <div class="col-xs-12">
+          <form class="form-horizontal" role="form">
+            <div class="form-group" id="statusMes" data-status="">
+              确定是否兑换？
+            </div>
+            <div class="form-group button">
+              <input type="button" class="btn btn-primary" onclick=sure('dui') value="确定">
+              <input type="button" class="btn" data-dismiss="modal" value="取消">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                    <!-- Modal 新增、编辑 -->
+<div class="modal fade" id="roleMes" tabindex="-1" role="dialog" aria-labelledby="roleMesLabel" data-id="">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="roleMesLabel"></h4>
+      </div>
+      <div class="modal-body row">
+        <div class="col-xs-12">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">收货人名称：</label>
+              <div class="col-sm-9 control-mes" id="receivicer">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">兑换人用户名：</label>
+              <div class="col-sm-9 control-mes" id="userName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">消耗数量/类型：</label>
+              <div class="col-sm-9 control-mes" id="consumeCount">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">收货人电话号：</label>
+              <div class="col-sm-9 control-mes" id="telPhone">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">收货地址：</label>
+              <div class="col-sm-9 control-mes" id="address">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">兑换商品名称：</label>
+              <div class="col-sm-9 control-mes" id="goodsName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">兑换时间：</label>
+              <div class="col-sm-9 control-mes" id="createDate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">审核时间：</label>
+              <div class="col-sm-9 control-mes" id="updateDate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">审核状态：</label>
+              <div class="col-sm-9 control-mes" id="auditiStatus">
+              </div>
+            </div>
+            <div class="form-group button" id="roleMesBtn">
+              <input type="button" class="btn btn-primary" onclick=sure('pass') value="审核通过">
+              <input type="button" class="btn" onclick=sure('fail') value="审核失败">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+   
+<script src="vendor/jquery-3.1.1.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap/bootstrap-table.min.js"></script>
+<script src="vendor/bootstrap/bootstrap-table-locale-all.min.js"></script>
+<script src="vendor/layer/layer.min.js" ></script>
+<script src="js/ajax.js"></script>
+<script src="js/public.js"></script>
+<script src="js/dataVirtualGoods.js"></script>
+
+</body>
+
+</html>

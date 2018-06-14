@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> 修改密码</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+<link href="css/public.css" rel="stylesheet">
+
+</head>
+
+<body class="page-body">
+    <h5 class="position-title">当前位置：我的账号<span>/</span>修改密码</h5>
+
+    <div class="row padding50">
+        
+		<form class="form-horizontal" role="form" style="width: 500px;">
+		  <div class="form-group">
+		    <label class="col-xs-3 control-label">旧密码：</label>
+		    <div class="col-xs-9">
+		      <input type="password" class="form-control" id="oldPassword" placeholder="*******">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword" class="col-xs-3 control-label">新密码：</label>
+		    <div class="col-xs-9">
+		      <input type="password" class="form-control" id="newPassword" placeholder="">
+		    </div>
+		  </div>
+		    <div class="form-group">
+		    <label for="inputPassword" class="col-xs-3 control-label">确认新密码：</label>
+		    <div class="col-xs-9">
+		      <input type="password" class="form-control" id="surenewPassword" placeholder="">
+		    </div>
+		  </div>
+		  
+         <div class="btn-right" >
+         	 <input id="" type="reset" class="btn btn-default" value="重置">
+            <input id="" type="button" class="btn btn-info" value="提交" onclick="updatePwd();">
+        </div> 
+		</form>
+
+    </div>
+
+  
+
+
+
+
+   
+<script src="vendor/jquery-3.1.1.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap/bootstrap-table.min.js"></script>
+<script src="vendor/bootstrap/bootstrap-table-locale-all.min.js"></script>
+<script src="vendor/layer/layer.min.js" ></script>
+<script src="vendor/md5.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/public.js"></script>
+<script>
+	function updatePwd(){
+		var op = $("#oldPassword").val();
+		var np = $("#newPassword").val();
+		var snp = $("#surenewPassword").val();
+		if(op == "" || np == "" || snp == ""){
+			
+			layer.msg('你有一个密码没有填写！');
+		}
+		else if(np!=snp)
+		{
+			
+			layer.msg('新密码输入有误！');
+		}
+		else
+		{
+			surePwd(op,np,snp);
+		}
+		
+		 
+		
+	}
+	function surePwd(op,np,snp){
+		
+		 var data = {
+           old_pwd:$.md5(op),
+           new_pwd:$.md5(np),
+           pwd_confirm:$.md5(snp)
+        };
+	 var result = ajaxMethod('updatePwd',data);
+	 console.log(result);
+	 if(result.status == 1){
+	 	 addCookie("authKey",result.data.authKey);
+         addCookie("sessionId",result.data.sessionId);
+         layer.msg('修改密码成功！');
+	 }
+	 else{
+	 	layer.msg(result.msg);
+	 }
+	}
+	function addCookie(str,value){
+    var date = new Date();
+    var delDay = 7;//保存7天时间
+    date.setTime(date.getTime()+delDay*24*3600*1000);
+    document.cookie = str+"="+value+";"+"expires="+date.toGMTString();
+}
+	
+</script>
+
+</body>
+
+</html>

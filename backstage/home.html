@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+
+<title>宝万恒租赁后台管理系统</title>
+
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/homeAbout/font-awesome.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/homeAbout/animate.css" rel="stylesheet">
+<link href="css/homeAbout/style.css?v=4.1.0" rel="stylesheet">
+<style>
+  .ddNum{
+  margin-left: 10px;
+  color: red;
+}
+</style>
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="height: 100%;overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="font-size:20px;">
+                                        <i class="fa fa-bank"></i>
+                                        <strong class="font-bold">宝万恒</strong>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element">  <i class="fa fa-bank"></i>
+                        </div>
+                    </li>
+                     <li>
+                        <a href="#">
+                          <i class="fa fa-home"></i> 
+                          <span class="nav-label J_menuItem" data-href="welcome.html">后台首页</span>                       
+                        </a>                                          
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-address-book-o"></i> 
+                          <span class="nav-label">地址管理</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                          <li><a class="J_menuItem" data-href="updatePwd.html">租赁地址管理</a></li>
+                           <li><a class="J_menuItem" data-href="#">归还地址管理</a></li>
+                          
+                        </ul>
+                                           
+                      </li>
+                     
+                      
+                       <li>
+                        <a href="#">
+                          <i class="fa fa-briefcase"></i> 
+                          <span class="nav-label">方案管理（旧）</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           
+                           <li><a class="J_menuItem" data-href="zl_fabu.html">方案发布</a></li>
+                           <li><a class="J_menuItem" data-href="zl_shop.html">方案列表</a></li>
+                           <li><a class="J_menuItem" data-href="leaseType.html">品类管理</a></li>
+                           <li><a class="J_menuItem" data-href="categoryType.html">品类属性</a></li>
+                           <li><a class="J_menuItem" data-href="attrType.html">属性列表</a></li>
+                           <li><a class="J_menuItem" data-href="test.html">富文本编辑器</a></li>
+                        </ul>
+                      </li>
+
+
+
+                      <!-- 商品管理 Start-->
+                      <li>
+                          <a href="#">
+                              <i class="fa fa-briefcase"></i> 
+                              <span class="nav-label">商品管理</span>
+                              <span class="fa arrow"></span>
+                          </a>
+                          <ul class="nav nav-second-level">
+                              <li><a class="J_menuItem" data-href="goods_option_category.html">商品类目</a></li>
+                              <li><a class="J_menuItem" data-href="goods_option_brand.html">商品品牌</a></li>
+                              <li><a class="J_menuItem" data-href="goods_option_attr.html">商品类目下的规格</a></li>
+                              <li><a class="J_menuItem" data-href="goods_option_attr_value.html">商品规格列表</a></li>
+                              <li><a class="J_menuItem" data-href="goods_info.html">商品列表</a></li>
+                          </ul>
+                      </li>
+                      <!-- 商品管理 End-->
+
+
+
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-comment-o"></i> 
+                          <span class="nav-label">询价管理</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           <li><a class="J_menuItem" data-href="#"> 待回复询价</a></li>
+                           <li><a class="J_menuItem" data-href="#"> 待确认询价</a></li>
+                        </ul>                        
+                      </li>
+                      
+                       <li>
+                         <a href="#">
+                          <i class="fa fa-calendar-check-o"></i> 
+                          <span class="nav-label">订单管理</span>
+                          <span class="fa arrow"></span>                                              
+                        </a>  
+                         <ul class="nav nav-second-level">
+                           <li><a class="J_menuItem" data-href="dd_list.html">所有订单<span class="ddNum ddNum0"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_dfk.html">待付款<span class="ddNum ddNum1"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_dfh.html">待发货<span class="ddNum ddNum2"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_dsh.html">待收货<span class="ddNum ddNum3"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_dgh.html">待归还<span class="ddNum ddNum4"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_suredgh.html">待确认归还<span class="ddNum ddNum5"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_wc.html">交易完成<span class="ddNum ddNum6"></span></a></li>
+                           <li><a class="J_menuItem" data-href="dd_gb.html">订单关闭<span class="ddNum ddNum7"></span></a></li>
+                        </ul>  
+                      </li>
+                    
+                      
+                        
+                       <li>
+                        <a href="#">
+                          <i class="fa fa-user"></i> 
+                          <span class="nav-label">我的账号</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                          <li><a class="J_menuItem" data-href="updatePwd.html"> 修改密码</a></li>
+                            <li><a class="J_menuItem" data-href="operatRecord.html">操作记录</a></li>
+                        </ul>
+                                           
+                      </li>
+                       <li>
+                        <a href="#">
+                          <i class="fa fa-pie-chart"></i> 
+                          <span class="nav-label">统计管理</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           <li><a class="J_menuItem" data-href="#">客户统计</a></li>
+                           <li><a class="J_menuItem" data-href="#">押金统计</a></li>
+                           <li><a class="J_menuItem" data-href="#">租金统计</a></li>
+                           <li><a class="J_menuItem" data-href="#">收藏统计</a></li>
+                        </ul>                                              
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-clipboard"></i> 
+                          <span class="nav-label">文档管理</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           <li><a class="J_menuItem" data-href="#">管理平台使用手册</a></li>
+                          
+                               <li>                            
+                              <a href="#">
+                              <i class="fa fa-files-o"></i> 
+                              <span class="nav-label">帮助文档中心</span>
+                              <span class="fa arrow"></span>
+                              </a>
+                            <ul class="nav nav-second-level">
+                               <li><a class="J_menuItem" data-href="hp_type.html">帮助文档分类</a></li>
+                               <li><a class="J_menuItem" data-href="hp_list.html">帮助文档列表</a></li>
+                            
+                            </ul>       
+                            </li>
+                        </ul>                                              
+                      </li>
+                        <li>
+                        <a href="#">
+                          <i class="fa fa-group"></i> 
+                          <span class="nav-label">平台客服</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           <li><a class="J_menuItem" data-href="#">平台沟通</a></li>
+                           <li><a class="J_menuItem" data-href="">在线沟通</a></li>
+                          
+                        </ul>                                              
+                      </li>
+                          <li>
+                        <a href="#">
+                          <i class="fa fa-windows"></i> 
+                          <span class="nav-label">广告管理</span>
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           <li><a class="J_menuItem" data-href="banner.html">banner管理</a></li>                                                  
+                        </ul>                                              
+                      </li>
+                     
+                      
+                  
+                </ul>
+               
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1" style="overflow: hidden;">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-info " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                      <!--  <li ><img src="img/a1.jpg" style="width: 50px;height: 50px;border-radius: 50%;position: relative;top:-5px;"></li>
+                     -->   <li id="users"><!-- <b style="font-size: 15px;margin: 0 10px">admin</b> --></li>
+                     
+                         <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" onclick="logOut()">
+                                <i class="fa fa-power-off fa-2x" style="position: relative;top:5px"></i> 
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe id="J_iframe" width="100%" height="100%" src="welcome.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            </div>
+            
+        </div>
+        <!--右侧部分结束-->
+    </div>
+
+    <!-- 全局js -->
+<script src="vendor/jquery.min.js"></script>
+<!-- <script src="vendor/jquery.cookie.js"></script> -->
+<script src="vendor/layer/layer.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/metisMenu/jquery.metisMenu.js"></script>
+<script src="vendor/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/public.js"></script>
+<script src="js/home.js"></script>
+
+<script>
+   $('#side-menu').metisMenu();
+        $(".J_menuItem").on('click',function(){
+            var url = $(this).attr('data-href');
+            var getdate = $(this).attr('getdata');
+            //alert(url);
+            //alert(getdate);
+            $("#J_iframe").attr('src',url);
+            $("#J_iframe").attr('data-id',getdate);
+            // sessionStorageSave('src',{url:url});
+            return false;
+        });
+        $(document).ready(function(){
+           var result = ajaxMethod('orderNum');
+           console.log("==============================");
+           console.log(result);
+           $(".ddNum0").html("("+result.data.status0+")");
+           $(".ddNum1").html("("+result.data.status1+")");
+           $(".ddNum2").html("("+result.data.status2+")");
+           $(".ddNum3").html("("+result.data.status3+")");
+           $(".ddNum4").html("("+result.data.status4+")");
+           $(".ddNum5").html("("+result.data.status5+")");
+           $(".ddNum6").html("("+result.data.status6+")");
+           $(".ddNum7").html("("+result.data.status7+")");
+          
+        })
+         
+</script>
+</body>
+</html>
