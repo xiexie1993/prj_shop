@@ -11,7 +11,7 @@ return [
     'hostname'       => 'localhost',
     // 'hostname'       => '127.0.0.1',
     // 数据库名
-    'database'       => 'shop_market',
+    'database'       => 'prj_shop',
     // 'database'       => 'vuethink',
     // 用户名
     'username'       => 'root',

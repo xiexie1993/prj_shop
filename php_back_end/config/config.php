@@ -238,7 +238,8 @@ return [
     ],
 
     // 图片服务器地址 用于和数据库表中图片相对地址拼接
-    'img_server' => "http://192.168.1.110:9999/", 
+    // 'img_server' => "http://192.168.1.110:9999/", 
+    'img_server' => "http://img.prj_shop.com/", 
     //Api 接口 登录状态校验使能开关
     'api_login_verification' => 0,//1开启，需要登录，0关闭校验，即不登录也能访问接口
 

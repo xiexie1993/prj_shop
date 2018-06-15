@@ -44,17 +44,17 @@ function urlLink(str)
 
     var url = {
 
-        getBanner:{//获取首页banner
-            method:'get',
-            url:'/Index/index'
-        },
+        // getBanner:{//获取首页banner
+        //     method:'get',
+        //     url:'/index.php/Index/index'
+        // },
         IndexInit:{//获取首页初始化数据
             method:'get',
-            url:'/Index/index'
+            url:'/index.php/Index/index'
         },
         login:{//登陆
             method:'post',
-            url:'/admin/base/login'
+            url:'/index.php/admin/base/login'
         },
         logout:{//退出
             method:'post',
@@ -62,7 +62,7 @@ function urlLink(str)
         },
         picUpload:{//图片上传
             method:'post',
-            url:'/attachment/upload'
+            url:'/index.php/attachment/upload'
         }
     }
     return url[str];

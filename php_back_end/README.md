@@ -111,7 +111,7 @@ project  应用部署目录
 ├─think                     命令行入口文件
 ├─DevelopmentTutorial.md    开发教程和开发实例记录
 ├─DevelopmentLog.md         开发日志
-├─shop_market.sql           SQL文件
+├─prj_shop.sql              SQL数据库文件
 └─README.md                 自述文件
 ~~~
 
@@ -133,7 +133,14 @@ project  应用部署目录
 + (1)、用nginx当前台前端、后台后端的web服务器，
 + (2)、使用nginx的转发代理功能转发请求到后端
     * 所需条件：
-        1、域名（前台域名、后台域名）---本地配置修改host
+        + 1、域名（前台域名、后台域名）---本地配置修改host
+            * 本地开发的重定向配置（windows配置文件C:\Windows\System32\drivers\etc\HOSTS）
+            ~~~
+                127.0.0.1    api.prj_shop.com
+                127.0.0.1    admin.prj_shop.com
+                127.0.0.1    mobile.prj_shop.com
+                127.0.0.1    img.prj_shop.com
+            ~~~
 
 #### b、nginx配置说明
 
@@ -142,7 +149,52 @@ project  应用部署目录
 + 配置例子
 
 ~~~
+    ## 项目 后端服务端
+    server {
+        listen       80;
+        server_name  api.prj_shop.com;
 
+        #charset koi8-r;
+
+        access_log  logs/tp5_prj_shop_access.log  main;
+            root   "C:/MyWorkSpace/GitHub_Prj/prj_shop/php_back_end/public";
+        location / {
+            index  index.html index.htm index.php l.php;
+           autoindex  off;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        location ~ \.php(.*)$  {
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_split_path_info  ^((?U).+\.php)(/?.+)$;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            fastcgi_param  PATH_INFO  $fastcgi_path_info;
+            fastcgi_param  PATH_TRANSLATED  $document_root$fastcgi_path_info;
+            include        fastcgi_params;
+        }
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
 
 
 ~~~
@@ -152,8 +204,18 @@ project  应用部署目录
 
 #### d、数据库配置说明
 
++ 建议版本： MySQL5.8及以上 或MariaDB
++ 字符集：   utf8--UTF-8 Unicode
++ 排序规则   utf8_general_ci
 
-###
+> 环境要求
+> + PHP >= 5.4.0
+> + PDO PHP Extension
+> + MBstring PHP Extension
+> + CURL PHP Extension
+
+
+
 
 ## 四、参考资料
 

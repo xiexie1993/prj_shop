@@ -11,7 +11,7 @@ use think\Controller;
 
 class Upload extends Controller
 {
-    protected $top_path = 'public' ; //保存文件的顶级目录
+    protected $top_path = 'imgserver1' ; //保存文件的顶级目录
 
     // protected $Secondary_path;//保存文件的次级目录
 
@@ -219,7 +219,7 @@ class Upload extends Controller
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     /**
-     *  上传文件保存并改名 病输出
+     *  上传文件保存并改名 并输出
      *  @param  上传文件信息
      *  @param  文件保存的顶级目录
      *  
@@ -232,7 +232,7 @@ class Upload extends Controller
         $pathinfo=pathinfo($file_tmp_info["name"], PATHINFO_EXTENSION); //获取扩展名
         // exit(json_encode($pathinfo));
         // $savefilename = 'bwh'.$file_info['md5_hash'].time().$type;//md5hash+当前时间戳
-        $savefilename = 'bwh'.$file_info['md5_hash'].time().'.'.$pathinfo;//md5hash+当前时间戳
+        $savefilename = 'shop'.$file_info['md5_hash'].time().'.'.$pathinfo;//md5hash+当前时间戳
         $savefilepath = $top_path.'/'.$Secondary_path.'/'.$savefilename;
         move_uploaded_file($file_tmp_info['tmp_name'],$savefilepath);
         $ret_data = $file_info;

@@ -41,7 +41,7 @@ function urlLink(str){
     var url = {
         login:{//后台登陆
             method:'post',
-            url:'/admin/base/login'
+            url:'/index.php/admin/base/login'
         },
         logout:{//退出
             method:'post',
