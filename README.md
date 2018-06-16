@@ -101,7 +101,8 @@ project                应用根目录
 
         #charset koi8-r;
 
-        access_log  logs/tp5_prj_shop_access.log  main;
+        # access_log  logs/tp5_prj_shop_api_access.log  main;
+        access_log  logs/tp5_prj_shop_api_access.log;
             root   "C:/MyWorkSpace/GitHub_Prj/prj_shop/php_back_end/public";
         location / {
             index  index.html index.htm index.php l.php;
@@ -145,7 +146,10 @@ project                应用根目录
     server {
         listen       80;
         server_name  mobile.prj_shop.com;
-
+        
+        # access_log  logs/tp5_prj_shop_mobile_access.log main;
+        access_log  logs/tp5_prj_shop_mobile_access.log;
+        
         root   'C:/MyWorkSpace/GitHub_Prj/prj_shop/reception_desk/mobile_page';
         #转发1
         location ^~ /${url}/ {
@@ -160,6 +164,9 @@ project                应用根目录
         listen       80;
         server_name  admin.prj_shop.com;
 
+        # access_log  logs/tp5_prj_shop_admin_access.log main;
+        access_log  logs/tp5_prj_shop_admin_access.log;
+
         root   'C:/MyWorkSpace/GitHub_Prj/prj_shop/backstage';
         #转发1
         location ^~ /${url}/ {
@@ -173,6 +180,9 @@ project                应用根目录
     server {
         listen       80;
         server_name  img.prj_shop.com;
+        
+        # access_log  logs/tp5_prj_shop_img_access.log main;
+        access_log  logs/tp5_prj_shop_img_access.log;
 
         root   'C:/MyWorkSpace/GitHub_Prj/prj_shop/php_back_end/public/';
         location / {
@@ -200,12 +210,15 @@ project                应用根目录
 > + MBstring PHP Extension
 > + CURL PHP Extension
 
++ 后台账号
+    * 超级管理员： admin   密码： 123456
 
 ## 四、开发日志
 
 ### 1、nginx转发配置调试技巧
 
-+ 设置nginx日志格式
++ a、设置nginx日志格式
+
     ~~~
         http {
             #...其他配置...
@@ -214,7 +227,15 @@ project                应用根目录
                               '"$http_user_agent" "$http_x_forwarded_for"';
              #...其他配置...
              }
+
+
     ~~~
+
++ b、在相应的服务配置里开启
+    ~~~
+         #access_log  logs/XXXX_access.log  main;
+    ~~~
+    
 + 参考资料
     * [文章18 ：Nginx中http请求的处理过程](https://blog.csdn.net/yankai0219/article/details/8220695)
     * [搭建nginx反向代理用做内网域名转发](http://www.ttlsa.com/nginx/use-nginx-proxy/)
