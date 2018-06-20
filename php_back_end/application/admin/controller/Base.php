@@ -26,10 +26,10 @@ class Base extends Common
         }
         else 
         {
-            // echo '您正在非法访问!(__BWH—HT)';
+            // echo '您正在非法访问!(__shop_ht)';
             $ret_data['status'] = 0;
             $ret_data['data'] = null;
-            $ret_data['msg']  = "您正在非法访问!(__BWH—HT)";
+            $ret_data['msg']  = "您正在非法访问!(__shop_ht)";
             $ret_data['code'] = 1011;
             if(config('api_debug_enabled')==1)//开启调试输出调试参数
             {
